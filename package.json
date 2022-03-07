@@ -20,9 +20,31 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "eda"
+    ],
+    "ignorePatterns": [ 
+      "bundle.js" 
     ]
   },
+  "eslint.validate": [
+    {
+        "language": "vue",
+        "autoFix": true
+    },
+    {
+        "language": "html",
+        "autoFix": true
+    },
+    {
+        "language": "javascript",
+        "autoFix": true
+    },
+    {
+        "language": "typescript",
+        "autoFix": true
+    }
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -34,5 +56,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-eda": "^0.1.4"
   }
 }
