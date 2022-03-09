@@ -35,10 +35,7 @@ function ExpenseForm (props) {
       date: new Date(form.enteredDate)
     }
 
-    console.log(expenseData)
-
-    props.onSaveExpenseData()
-
+    props.onSaveExpenseData(expenseData)
     setForm({
       enteredTitle: '',
       enteredAmount: '',
