@@ -31,7 +31,7 @@ function ExpenseForm (props) {
 
     const expenseData = {
       title: form.enteredTitle,
-      amount: form.enteredAmount,
+      amount: +form.enteredAmount,
       date: new Date(form.enteredDate)
     }
 
@@ -41,47 +41,59 @@ function ExpenseForm (props) {
       enteredAmount: '',
       enteredDate: ''
     })
+
+    props.onSetToggle(false)
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className='new-expense__controls'>
+    <>
+      <form onSubmit={handleSubmit}>
+        <div className='new-expense__controls'>
 
-        <div className='new-expense__control'>
-          <label>
+          <div className='new-expense__control'>
+            <label>
             Title
-          </label>
-          <input type="text" value={form.enteredTitle} onChange={handleTitleChange} />
-        </div>
+            </label>
+            <input type="text" value={form.enteredTitle} onChange={handleTitleChange} />
+          </div>
 
-        <div className='new-expense__control'>
-          <label>
+          <div className='new-expense__control'>
+            <label>
             Amount
-          </label>
-          <input type="number" value={form.enteredAmount} min="0.01" step="0.01" onChange={handleAmountChange}/>
-        </div>
+            </label>
+            <input type="number" value={form.enteredAmount} min="0.01" step="0.01" onChange={handleAmountChange}/>
+          </div>
 
-        <div className='new-expense__control'>
-          <label>
+          <div className='new-expense__control'>
+            <label>
             Date
-          </label>
-          <input
-            type="date"
-            min="2019-01-01"
-            max="2022-12-31"
-            onChange={handleDateChange}
-            value={form.enteredDate}
-          />
-        </div>
+            </label>
+            <input
+              type="date"
+              min="2019-01-01"
+              max="2022-12-31"
+              onChange={handleDateChange}
+              value={form.enteredDate}
+            />
+          </div>
 
-        <div className='new-expense__actions'>
-          <button type="submit">
+          <div className='new-expense__actions'>
+            <button type="button" onClick={props.onHandleNewExpense}>
+            Cancel
+            </button>
+          </div>
+
+          <div className='new-expense__actions'>
+            <button type="submit">
             Add Expense
-          </button>
-        </div>
+            </button>
+          </div>
 
-      </div>
-    </form>
+        </div>
+      </form>
+
+    </>
+
   )
 }
 
